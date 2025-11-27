@@ -82,11 +82,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #aaa;
-    font-size: 18px;
+    position: relative;
+    overflow: hidden;
   }
+  .slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    font-size: 28px;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .slide-btn.left { left: 10px; }
+  .slide-btn.right { right: 10px; }
 
-  /* FOOTER */
+/* FOOTER */ */
   footer {
     margin-top: 60px;
     background: #141414;
@@ -193,7 +212,11 @@
       <h1>Gründlich – zuverlässig – persönlich</h1>
       <p>Ihr zuverlässiger Partner für Haus, Garten und Gebäude.</p>
 
-      <div class="slideshow">Slideshow für Bilder (Platzhalter)</div>
+      <div class="slideshow">
+  <button class="slide-btn left" onclick="prevSlide()">❮</button>
+  <img id="slideImage" src="slideshow/bild1.jpg" alt="Slideshow Bild" />
+  <button class="slide-btn right" onclick="nextSlide()">❯</button>
+</div>
     </div>
 
     <div class="right-box">
@@ -239,7 +262,6 @@
       <span>📍 Standort eintragbar</span>
     </div>
   </div>
-    
   </div>
 </footer>
 
@@ -252,6 +274,64 @@ function showHome() {
   document.getElementById("homePage").style.display = "block";
   document.getElementById("galleryPage").style.display = "none";
 }
+let slideIndex = 1;
+let slideshowImages = [
+  "slideshow/bild1.jpeg",
+  "slideshow/bild2.jpeg",
+  "slideshow/bild3.jpeg",
+  "slideshow/bild4.jpeg",
+  "slideshow/bild5.jpeg",
+  "slideshow/bild6.jpeg",
+  "slideshow/bild7.jpeg",
+  "slideshow/bild8.jpeg",
+  "slideshow/bild9.jpeg",
+  "slideshow/bild10.jpeg",
+  "slideshow/bild11.jpeg",
+  "slideshow/bild12.jpeg",
+  "slideshow/bild13.jpeg",
+  "slideshow/bild14.jpeg",
+  "slideshow/bild15.jpeg",
+  "slideshow/bild16.jpeg",
+  "slideshow/bild17.jpeg",
+  "slideshow/bild18.jpeg",
+  "slideshow/bild19.jpeg",
+  "slideshow/bild20.jpeg",
+  "slideshow/bild21.jpeg",
+  "slideshow/bild22.jpeg",
+  "slideshow/bild23.jpeg",
+  "slideshow/bild24.jpeg",
+  "slideshow/bild25.jpeg",
+  "slideshow/bild26.jpeg",
+  "slideshow/bild27.jpeg",
+  "slideshow/bild28.jpeg",
+  "slideshow/bild29.jpeg",
+  "slideshow/bild30.jpeg",
+  "slideshow/bild31.jpeg",
+  "slideshow/bild32.jpeg",
+  "slideshow/bild33.jpeg",
+  "slideshow/bild34.jpeg",
+  "slideshow/bild35.jpeg",
+  "slideshow/bild36.jpeg",
+  "slideshow/bild37.jpeg",
+  "slideshow/bild38.jpeg",
+  "slideshow/bild39.jpeg",
+  "slideshow/bild40.jpeg",
+  "slideshow/bild41.jpeg",
+  "slideshow/bild42.jpeg"
+
+];
+function showSlide(i) {
+  if (i > slideshowImages.length) slideIndex = 1;
+  if (i < 1) slideIndex = slideshowImages.length;
+  document.getElementById("slideImage").src = slideshowImages[slideIndex - 1];
+}
+function nextSlide() {
+  showSlide(++slideIndex);
+}
+function prevSlide() {
+  showSlide(--slideIndex);
+}
+
 </script>
 
 </body>
