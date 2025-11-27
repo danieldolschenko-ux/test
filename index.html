@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Immopro Merker</title>
 <style>
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #homePage, #galleryPage {
+    flex: 1;
+  }
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -107,9 +120,11 @@
 
 /* FOOTER */ */
   footer {
-    margin-top: 60px;
+    margin-top: auto;
+    width: 100%;
     background: #141414;
-    padding: 20px 40px;
+    padding: 20px 0;
+    box-sizing: border-box;
   }
 
   .footer-box {
@@ -144,8 +159,10 @@
   /* MOBILE VERSION */
   @media (max-width: 768px) {
     header {
+      width: 100%;
       flex-direction: row;
-      padding: 15px 20px;
+      padding: 10px 0;
+      box-sizing: border-box;
     }
 
     .logo {
@@ -179,10 +196,9 @@
 
     /* FOOTER MOBILE */
     .footer-box {
-      flex-direction: column;
-      gap: 20px;
-      text-align: center;
-      padding: 20px;
+      width: 100%;
+      padding: 20px 10px;
+      box-sizing: border-box;
     }
 
     .footer-left, .footer-right {
@@ -288,12 +304,12 @@
 <footer>
   <div class="footer-box" style="display:flex; justify-content:space-between; align-items:center;">
     <div class="footer-left" style="flex:1; display:flex; justify-content:center; align-items:center;">
-      <img src="logo.JPG" class="logo" style="height:60px;" alt="Logo" />
+      <img src="logo.JPG" class="logo" style="height:100px;" alt="Logo" />
     </div>
     <div class="footer-right" style="flex:1; display:flex; flex-direction:column; gap:6px; text-align:left; justify-content:center;">
       <span>Telefon: 0123 456789</span>
-      <span>Email immopromerker@icloud.com</span>
-      <span>📍 Standort</span>
+      <span>Email: immopromerker@icloud.com</span>
+      <span>Standort</span>
     </div>
   </div>
   </div>
