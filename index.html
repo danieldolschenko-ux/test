@@ -201,7 +201,7 @@
 <body>
 
 <header>
-  <img src="logo.png" class="logo" onclick="showHome()" alt="Logo" />
+  <img src="logo.JPG" class="logo" onclick="showHome()" alt="Logo" />
   <button class="nav-button" onclick="showGallery()">Bildergalerie</button>
 </header>
 
@@ -248,13 +248,47 @@
     <img src="bild2.jpeg" alt="Bild" />
     <img src="bild3.jpeg" alt="Bild" />
     <img src="bild4.jpeg" alt="Bild" />
+    <img src="bild5.jpeg" alt="Bild" />
+    <img src="bild6.jpeg" alt="Bild" />
+    <img src="bild7.jpeg" alt="Bild" />
+    <img src="bild8.jpeg" alt="Bild" />
+    <img src="bild9.jpeg" alt="Bild" />
+    <img src="bild10.jpeg" alt="Bild" />
+    <img src="bild11.jpeg" alt="Bild" />
+    <img src="bild12.jpeg" alt="Bild" />
+    <img src="bild13.jpeg" alt="Bild" />
+    <img src="bild14.jpeg" alt="Bild" />
+    <img src="bild15.jpeg" alt="Bild" />
+    <img src="bild16.jpeg" alt="Bild" />
+    <img src="bild17.jpeg" alt="Bild" />
+    <img src="bild18.jpeg" alt="Bild" />
+    <img src="bild19.jpeg" alt="Bild" />
+    <img src="bild20.jpeg" alt="Bild" />
+    <img src="bild21.jpeg" alt="Bild" />
+    <img src="bild22.jpeg" alt="Bild" />
+    <img src="bild23.jpeg" alt="Bild" />
+    <img src="bild24.jpeg" alt="Bild" />
+    <img src="bild25.jpeg" alt="Bild" />
+    <img src="bild26.jpeg" alt="Bild" />
+    <img src="bild27.jpeg" alt="Bild" />
+    <img src="bild28.jpeg" alt="Bild" />
+    <img src="bild29.jpeg" alt="Bild" />
+    <img src="bild30.jpeg" alt="Bild" />
+    <img src="bild31.jpeg" alt="Bild" />
+    <img src="bild32.jpeg" alt="Bild" />
+    <img src="bild33.jpeg" alt="Bild" />
+    <img src="bild34.jpeg" alt="Bild" />
+    <img src="bild35.jpeg" alt="Bild" />
+    <img src="bild36.jpeg" alt="Bild" />
+    <img src="bild37.jpeg" alt="Bild" />
+    <img src="bild38.jpeg" alt="Bild" />
   </div>
 </div>
 
 <footer>
   <div class="footer-box" style="display:flex; justify-content:space-between; align-items:center;">
     <div class="footer-left" style="flex:1; display:flex; justify-content:center; align-items:center;">
-      <img src="logo.png" class="logo" style="height:60px;" alt="Logo" />
+      <img src="logo.JPG" class="logo" style="height:60px;" alt="Logo" />
     </div>
     <div class="footer-right" style="flex:1; display:flex; flex-direction:column; gap:6px; text-align:left; justify-content:center;">
       <span>📞 0123 456789</span>
@@ -276,7 +310,7 @@ function showHome() {
 }
 let slideIndex = 1;
 let slideshowImages = [
-  "slideshow/bild1.jpeg",
+  "bild1.jpeg",
   "slideshow/bild2.jpeg",
   "slideshow/bild3.jpeg",
   "slideshow/bild4.jpeg",
@@ -323,7 +357,7 @@ let slideshowImages = [
 function showSlide(i) {
   if (i > slideshowImages.length) slideIndex = 1;
   if (i < 1) slideIndex = slideshowImages.length;
-  document.getElementById("slideImage").src = slideshowImages[slideIndex - 1];
+  document.getElementById("slideImages").src = slideshowImages[slideIndex - 1];
 }
 function nextSlide() {
   showSlide(++slideIndex);
