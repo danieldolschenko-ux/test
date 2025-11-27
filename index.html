@@ -5,18 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Immopro Merker</title>
 <style>
-  body::after {
+ body::after {
     content: "";
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 500px;      
+    width: 500px;      /* Größe des Wasserzeichens */
+    height: 500px;
     transform: translate(-50%, -50%);
-    background-image: url('logo.JPG');  
+    background-image: url('logo.JPG');  /* dein Logo */
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.06;    
-    pointer-events: none; 
+    opacity: 0.06;    /* Transparenz – anpassbar! */
+    pointer-events: none; /* blockiert keine Klicks */
     z-index: 0;
   }
 
