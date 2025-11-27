@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Immopro Service</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: #fff;
+  }
+
+  /* HEADER */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #141414;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .logo {
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .nav-button {
+    background: #2b2b2b;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .left-box, .right-box {
+    flex: 1;
+    background: #252525;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    line-height: 1.8;
+  }
+
+  /* SLIDESHOW */
+  .slideshow {
+    width: 100%;
+    height: 250px;
+    background: #444;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    font-size: 18px;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 60px;
+    background: #141414;
+    padding: 20px 40px;
+  }
+
+  .footer-box {
+    background: #252525;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* GALLERY PAGE */
+  #galleryPage {
+    display: none;
+    padding: 40px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #444;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" class="logo" onclick="showHome()" alt="Logo" />
+  <button class="nav-button" onclick="showGallery()">Bildergalerie</button>
+</header>
+
+<!-- HOME PAGE -->
+<div id="homePage">
+  <div class="container">
+    <div class="left-box">
+      <h1>Gründlich – zuverlässig – persönlich</h1>
+      <p>Ihr zuverlässiger Partner für Haus, Garten und Gebäude.</p>
+
+      <div class="slideshow">Slideshow für Bilder (Platzhalter)</div>
+    </div>
+
+    <div class="right-box">
+      <ul>
+        <li>Hausmeisterservice</li>
+        <li>Gartenpflege</li>
+        <li>Gebäudereinigung</li>
+        <li>Winterdienst</li>
+        <li>Reparaturen</li>
+        <li>Kontrollgänge</li>
+        <li>Objektbetreuung</li>
+        <li>Kleinreparaturen</li>
+        <li>Instandhaltung</li>
+        <li>Rasenservice</li>
+        <li>Reinigung von Solaranlagen</li>
+        <li>Pflege von Außenanlagen</li>
+        <li>Entrümpelung</li>
+        <li>Grabpflege</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY PAGE -->
+<div id="galleryPage">
+  <h1>Bildergalerie</h1>
+  <div class="gallery-grid">
+    <img src="bild1.jpg" alt="Bild" />
+    <img src="bild2.jpg" alt="Bild" />
+    <img src="bild3.jpg" alt="Bild" />
+    <img src="bild4.jpg" alt="Bild" />
+  </div>
+</div>
+
+<footer>
+  <div class="footer-box">
+    <span>📞 0123 456789</span>
+    <span>📧 immopromerker@icloud.com</span>
+    <span>📍 Standort eintragbar</span>
+  </div>
+</footer>
+
+<script>
+function showGallery() {
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("galleryPage").style.display = "block";
+}
+function showHome() {
+  document.getElementById("homePage").style.display = "block";
+  document.getElementById("galleryPage").style.display = "none";
+}
+</script>
+
+</body>
+</html>
