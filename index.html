@@ -4,25 +4,27 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Immopro Merker</title>
+
 <style>
   h1 {
-  white-space: nowrap;      /* verhindert Zeilenumbruch */
-  font-size: 20px !important; /* kleinere Schrift auf Handy */
-  color: #64cbfc
+    white-space: nowrap;
+    font-size: 20px !important;
+    color: #64cbfc;
   }
- body::after {
+
+  body::after {
     content: "";
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 500px;     
+    width: 500px;
     height: 500px;
     transform: translate(-50%, -50%);
-    background-image: url('logo.JPG');  
+    background-image: url('logo.JPG');
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.01;   
-    pointer-events: none; 
+    opacity: 0.01;
+    pointer-events: none;
     z-index: 9999;
   }
 
@@ -30,8 +32,13 @@
     position: relative;
     z-index: 1;
   }
+
   html, body {
     height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: #fff;
   }
 
   body {
@@ -40,20 +47,9 @@
     min-height: 100vh;
   }
 
-  #homePage, #galleryPage {
-    flex: 1;
-  }
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #1e1e1e;
-    color: #fff;
-  }
-
   /* HEADER */
   header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px 20px;
     background: #141414;
@@ -63,9 +59,20 @@
     z-index: 1000;
   }
 
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
   .logo {
     height: 150px;
     cursor: pointer;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 15px;
   }
 
   .nav-button {
@@ -102,11 +109,6 @@
     border: 1px solid #333;
   }
 
-  h1 {
-    font-size: 32px;
-    margin-bottom: 20px;
-  }
-
   ul {
     line-height: 1.8;
   }
@@ -123,12 +125,14 @@
     position: relative;
     overflow: hidden;
   }
+
   .slideshow img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     background: #000;
   }
+
   .slide-btn {
     position: absolute;
     top: 50%;
@@ -141,16 +145,16 @@
     cursor: pointer;
     border-radius: 6px;
   }
+
   .slide-btn.left { left: 10px; }
   .slide-btn.right { right: 10px; }
 
-/* FOOTER */ */
+  /* FOOTER */
   footer {
     margin-top: auto;
     width: 100%;
     background: #141414;
     padding: 20px 0;
-    box-sizing: border-box;
   }
 
   .footer-box {
@@ -163,7 +167,7 @@
     align-items: center;
   }
 
-  /* GALLERY PAGE */
+  /* GALLERY */
   #galleryPage {
     display: none;
     padding: 40px;
@@ -182,17 +186,26 @@
     background: #141414;
     border-radius: 8px;
   }
-  /* MOBILE VERSION */
+
+  /* IMPRESSUM */
+  #impressumPage {
+    display: none;
+    padding: 40px;
+  }
+
+  /* MOBILE */
   @media (max-width: 768px) {
     header {
-      width: 100%;
-      flex-direction: row;
-      padding: 10px 0;
-      box-sizing: border-box;
+      padding: 10px;
     }
 
     .logo {
       height: 100px;
+    }
+
+    .button-group {
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .nav-button {
@@ -202,40 +215,14 @@
 
     .container {
       flex-direction: column;
-      padding: 10px;
-      gap: 20px;
-    }
-
-    .left-box, .right-box {
-      width: 100%;
-      flex: unset;
     }
 
     .slideshow {
       height: 200px;
     }
 
-    /* GALLERY GRID MOBILE */
     .gallery-grid {
       grid-template-columns: 1fr 1fr;
-    }
-
-    /* FOOTER MOBILE */
-    .footer-box {
-      width: 100%;
-      padding: 20px 10px;
-      box-sizing: border-box;
-    }
-
-    .footer-left, .footer-right {
-      flex: unset !important;
-      width: 100%;
-      justify-content: center !important;
-      text-align: center !important;
-    }
-
-    .footer-right span {
-      text-align: center !important;
     }
   }
 </style>
@@ -243,8 +230,15 @@
 <body>
 
 <header>
-  <img src="logo.JPG" class="logo" onclick="showHome()" alt="Logo" />
-  <button class="nav-button" onclick="showGallery()">Bildergalerie</button>
+  <div class="header-left">
+    <img src="logo.JPG" class="logo" onclick="showHome()" alt="Logo" />
+
+    <div class="button-group">
+      <button class="nav-button" onclick="showHome()">Startseite</button>
+      <button class="nav-button" onclick="showGallery()">Bildergalerie</button>
+      <button class="nav-button" onclick="showImpressum()">Impressum</button>
+    </div>
+  </div>
 </header>
 
 <!-- HOME PAGE -->
@@ -255,10 +249,10 @@
       <p>Ihr zuverlässiger Partner für Haus, Garten und Gebäude.</p>
 
       <div class="slideshow">
-  <button class="slide-btn left" onclick="prevSlide()">❮</button>
-  <img id="slideImage" src="slideshow/bild1.jpeg" alt="Slideshow Bild" />
-  <button class="slide-btn right" onclick="nextSlide()">❯</button>
-</div>
+        <button class="slide-btn left" onclick="prevSlide()">❮</button>
+        <img id="slideImage" src="slideshow/bild1.jpeg" alt="Slideshow Bild" />
+        <button class="slide-btn right" onclick="nextSlide()">❯</button>
+      </div>
     </div>
 
     <div class="right-box">
@@ -283,131 +277,136 @@
   </div>
 </div>
 
+<!-- GALLERY PAGE -->
 <div id="galleryPage">
   <h1>Bildergalerie</h1>
   <div class="gallery-grid">
-    <img src="slideshow/bild1.jpeg" alt="Bild" />
-    <img src="slideshow/bild2.jpeg" alt="Bild" />
-    <img src="slideshow/bild3.jpeg" alt="Bild" />
-    <img src="slideshow/bild4.jpeg" alt="Bild" />
-    <img src="slideshow/bild5.jpeg" alt="Bild" />
-    <img src="slideshow/bild6.jpeg" alt="Bild" />
-    <img src="slideshow/bild7.jpeg" alt="Bild" />
-    <img src="slideshow/bild8.jpeg" alt="Bild" />
-    <img src="slideshow/bild9.jpeg" alt="Bild" />
-    <img src="slideshow/bild10.jpeg" alt="Bild" />
-    <img src="slideshow/bild11.jpeg" alt="Bild" />
-    <img src="slideshow/bild12.jpeg" alt="Bild" />
-    <img src="slideshow/bild13.jpeg" alt="Bild" />
-    <img src="slideshow/bild14.jpeg" alt="Bild" />
-    <img src="slideshow/bild15.jpeg" alt="Bild" />
-    <img src="slideshow/bild16.jpeg" alt="Bild" />
-    <img src="slideshow/bild17.jpeg" alt="Bild" />
-    <img src="slideshow/bild18.jpeg" alt="Bild" />
-    <img src="slideshow/bild19.jpeg" alt="Bild" />
-    <img src="slideshow/bild20.jpeg" alt="Bild" />
-    <img src="slideshow/bild21.jpeg" alt="Bild" />
-    <img src="slideshow/bild22.jpeg" alt="Bild" />
-    <img src="slideshow/bild23.jpeg" alt="Bild" />
-    <img src="slideshow/bild24.jpeg" alt="Bild" />
-    <img src="slideshow/bild25.jpeg" alt="Bild" />
-    <img src="slideshow/bild26.jpeg" alt="Bild" />
-    <img src="slideshow/bild27.jpeg" alt="Bild" />
-    <img src="slideshow/bild28.jpeg" alt="Bild" />
-    <img src="slideshow/bild29.jpeg" alt="Bild" />
-    <img src="slideshow/bild30.jpeg" alt="Bild" />
-    <img src="slideshow/bild31.jpeg" alt="Bild" />
-    <img src="slideshow/bild32.jpeg" alt="Bild" />
-    <img src="slideshow/bild33.jpeg" alt="Bild" />
-    <img src="slideshow/bild34.jpeg" alt="Bild" />
-    <img src="slideshow/bild35.jpeg" alt="Bild" />
-    <img src="slideshow/bild36.jpeg" alt="Bild" />
-    <img src="slideshow/bild37.jpeg" alt="Bild" />
-    <img src="slideshow/bild38.jpeg" alt="Bild" />
+    <!-- Bilder 1–38 -->
+    <!-- Du kannst weitere ergänzen -->
+    <img src="slideshow/bild1.jpeg" />
+    <img src="slideshow/bild2.jpeg" />
+    <img src="slideshow/bild3.jpeg" />
+    <img src="slideshow/bild4.jpeg" />
+    <img src="slideshow/bild5.jpeg" />
+    <img src="slideshow/bild6.jpeg" />
+    <img src="slideshow/bild7.jpeg" />
+    <img src="slideshow/bild8.jpeg" />
+    <img src="slideshow/bild9.jpeg" />
+    <img src="slideshow/bild10.jpeg" />
+    <img src="slideshow/bild11.jpeg" />
+    <img src="slideshow/bild12.jpeg" />
+    <img src="slideshow/bild13.jpeg" />
+    <img src="slideshow/bild14.jpeg" />
+    <img src="slideshow/bild15.jpeg" />
+    <img src="slideshow/bild16.jpeg" />
+    <img src="slideshow/bild17.jpeg" />
+    <img src="slideshow/bild18.jpeg" />
+    <img src="slideshow/bild19.jpeg" />
+    <img src="slideshow/bild20.jpeg" />
+    <img src="slideshow/bild21.jpeg" />
+    <img src="slideshow/bild22.jpeg" />
+    <img src="slideshow/bild23.jpeg" />
+    <img src="slideshow/bild24.jpeg" />
+    <img src="slideshow/bild25.jpeg" />
+    <img src="slideshow/bild26.jpeg" />
+    <img src="slideshow/bild27.jpeg" />
+    <img src="slideshow/bild28.jpeg" />
+    <img src="slideshow/bild29.jpeg" />
+    <img src="slideshow/bild30.jpeg" />
+    <img src="slideshow/bild31.jpeg" />
+    <img src="slideshow/bild32.jpeg" />
+    <img src="slideshow/bild33.jpeg" />
+    <img src="slideshow/bild34.jpeg" />
+    <img src="slideshow/bild35.jpeg" />
+    <img src="slideshow/bild36.jpeg" />
+    <img src="slideshow/bild37.jpeg" />
+    <img src="slideshow/bild38.jpeg" />
   </div>
 </div>
 
+<!-- IMPRESSUM PAGE -->
+<div id="impressumPage">
+  <h1>Impressum</h1>
+
+  <p><strong>Angaben gemäß § 5 TMG</strong></p>
+
+  <p>
+    ImmoPro Merker<br>
+    Inhaber: Konstantin Merker<br>
+    Friedrichstraße 8<br>
+    56203 Höhr-Grenzhausen
+    Deutschland
+  </p>
+
+  <p>
+    Kontakt:<br>
+    Telefon: 0176 82439326<br>
+    Telefon: 0175 8967000<br>
+    E-Mail: immopromerker@icloud.com
+  </p>
+
+  <p><strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
+    Konstantin Merker<br>
+    Friedrichstraße 8<br>
+    56203 Höhr-Grenzhausen<br>
+  </p>
+</div>
+
 <footer>
-  <div class="footer-box" style="display:flex; justify-content:space-between; align-items:center;">
-    <div class="footer-left" style="flex:1; display:flex; justify-content:center; align-items:center;">
+  <div class="footer-box">
+    <div class="footer-left">
       <img src="logo.JPG" class="logo" style="height:100px;" alt="Logo" />
     </div>
-    <div class="footer-right" style="flex:1; display:flex; flex-direction:column; gap:6px; text-align:left; justify-content:center;">
+    <div class="footer-right">
       <span>ImmoPro Inh. Konstantin Merker</span>
       <span>56203 Höhr-Grenzhausen Friedrichstraße 8</span>
       <span>Telefon: 0176 82439326 / 0175 8967000</span>
       <span>Email: immopromerker@icloud.com</span>
     </div>
   </div>
-  </div>
 </footer>
 
 <script>
-function showGallery() {
-  document.getElementById("homePage").style.display = "none";
-  document.getElementById("galleryPage").style.display = "block";
-}
-function showHome() {
-  document.getElementById("homePage").style.display = "block";
-  document.getElementById("galleryPage").style.display = "none";
-}
 let slideIndex = 1;
-let slideshowImages = [
-  "slideshow/bild1.jpeg",
-  "slideshow/bild2.jpeg",
-  "slideshow/bild3.jpeg",
-  "slideshow/bild4.jpeg",
-  "slideshow/bild5.jpeg",
-  "slideshow/bild6.jpeg",
-  "slideshow/bild7.jpeg",
-  "slideshow/bild8.jpeg",
-  "slideshow/bild9.jpeg",
-  "slideshow/bild10.jpeg",
-  "slideshow/bild11.jpeg",
-  "slideshow/bild12.jpeg",
-  "slideshow/bild13.jpeg",
-  "slideshow/bild14.jpeg",
-  "slideshow/bild15.jpeg",
-  "slideshow/bild16.jpeg",
-  "slideshow/bild17.jpeg",
-  "slideshow/bild18.jpeg",
-  "slideshow/bild19.jpeg",
-  "slideshow/bild20.jpeg",
-  "slideshow/bild21.jpeg",
-  "slideshow/bild22.jpeg",
-  "slideshow/bild23.jpeg",
-  "slideshow/bild24.jpeg",
-  "slideshow/bild25.jpeg",
-  "slideshow/bild26.jpeg",
-  "slideshow/bild27.jpeg",
-  "slideshow/bild28.jpeg",
-  "slideshow/bild29.jpeg",
-  "slideshow/bild30.jpeg",
-  "slideshow/bild31.jpeg",
-  "slideshow/bild32.jpeg",
-  "slideshow/bild33.jpeg",
-  "slideshow/bild34.jpeg",
-  "slideshow/bild35.jpeg",
-  "slideshow/bild36.jpeg",
-  "slideshow/bild37.jpeg",
-  "slideshow/bild38.jpeg",
-  "slideshow/bild39.jpeg",
-  "slideshow/bild40.jpeg",
-  "slideshow/bild41.jpeg",
-  "slideshow/bild42.jpeg"
-];
+let slideshowImages = [];
+
+for (let i = 1; i <= 42; i++) {
+  slideshowImages.push(`slideshow/bild${i}.jpeg`);
+}
+
 function showSlide(i) {
   if (i > slideshowImages.length) slideIndex = 1;
   if (i < 1) slideIndex = slideshowImages.length;
   document.getElementById("slideImage").src = slideshowImages[slideIndex - 1];
 }
+
 function nextSlide() {
-  showSlide(++slideIndex);
-}
-function prevSlide() {
-  showSlide(--slideIndex);
+  slideIndex++;
+  showSlide(slideIndex);
 }
 
+function prevSlide() {
+  slideIndex--;
+  showSlide(slideIndex);
+}
+
+function showGallery() {
+  homePage.style.display = "none";
+  galleryPage.style.display = "block";
+  impressumPage.style.display = "none";
+}
+
+function showHome() {
+  homePage.style.display = "block";
+  galleryPage.style.display = "none";
+  impressumPage.style.display = "none";
+}
+
+function showImpressum() {
+  homePage.style.display = "none";
+  galleryPage.style.display = "none";
+  impressumPage.style.display = "block";
+}
 </script>
 
 </body>
