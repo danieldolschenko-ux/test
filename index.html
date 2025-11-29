@@ -193,18 +193,16 @@
     padding: 40px;
   }
 
+  #ÜberUnsPage {
+    display: none;
+    padding: 40px;
+  }
+
   /* MOBILE */
   @media (max-width: 768px) {
     header {
       padding: 10px;
     }
-    
-    .left-box h1 {
-      font-size: 18px !important;
-      white-space: nowrap; 
-      text-align: center;
-    }
-
 
     .logo {
       height: 100px;
@@ -244,6 +242,7 @@
       <button class="nav-button" onclick="showHome()">Startseite</button>
       <button class="nav-button" onclick="showGallery()">Bildergalerie</button>
       <button class="nav-button" onclick="showImpressum()">Impressum</button>
+      <button class="nav-button" onclick="showÜberUns()">ÜberUns</button>
     </div>
   </div>
 </header>
@@ -338,7 +337,7 @@
   <p><strong>Angaben gemäß § 5 TMG</strong></p>
 
   <p>
-    ImmoPro<br>
+    ImmoPro Merker<br>
     Inhaber: Konstantin Merker<br>
     Friedrichstraße 8<br>
     56203 Höhr-Grenzhausen
@@ -356,6 +355,40 @@
     Konstantin Merker<br>
     Friedrichstraße 8<br>
     56203 Höhr-Grenzhausen<br>
+  </p>
+</div>
+
+<div id="ÜberUnsPage">
+  <h1>Über uns – IMMO PRO Property Maintenance</h1>
+
+ </p> 
+      Willkommen bei IMMO PRO Property Maintenance – Ihrem zuverlässigen Partner für Hausmeisterservice, Gartenpflege und Gebäudereinigung.<br>
+      Wir betreuen private Haushalte, Wohnanlagen, Unternehmen und Immobilienverwaltungen rundum zuverlässig und mit echten Qualitätsansprüchen.
+ </p> 
+  </p> 
+      Was uns ausmacht:<br>
+      Wir legen großen Wert auf saubere Arbeit, direkte Kommunikation und eine vertrauensvolle Zusammenarbeit. Bei uns gibt es keine versteckten Kosten und keine halben Lösungen – wir stehen für ehrliche, zuverlässige und gründliche Dienstleistung.
+  </p> 
+   </p> 
+      Unser Anspruch:<br>
+      Jede Immobilie soll nicht nur gepflegt wirken, sondern langfristig in gutem Zustand bleiben. Deshalb arbeiten wir sorgfältig, planbar und immer mit Blick auf das große Ganze. Egal ob regelmäßige Objektbetreuung, gründliche Reinigung oder saisonale Gartenpflege – wir kümmern uns darum.
+   </p> 
+    </p> 
+      Zusammenarbeit mit Fachbetrieben:<br>
+      Für Aufgaben, die spezielle Qualifikationen oder Meisterbetriebe erfordern (Elektrik, Sanitär, Schlosserei usw.), arbeiten wir mit erfahrenen, regionalen Partnerfirmen zusammen. Wir koordinieren diese Arbeiten für Sie und sorgen dafür, dass alles fachgerecht und zeitnah erledigt wird.
+      Sie haben nur einen Ansprechpartner – und wir kümmern uns um den Rest.
+    </p> 
+    </p> 
+      Warum wir?<br>
+        •	Persönlicher Ansprechpartner<br>
+        •	Schnelle Reaktionszeiten<br>
+        •	Faire, transparente Preise<br>
+        •	Professionelles Auftreten<br>
+        •	Viele zufriedene Stammkunden<br>
+        •	Saubere und pünktliche Ausführung
+     </p> 
+
+      Wir freuen uns, auch Ihre Immobilie betreuen zu dürfen – zuverlässig, flexibel und mit echter Leidenschaft für unsere Arbeit!
   </p>
 </div>
 
@@ -401,19 +434,30 @@ function showGallery() {
   homePage.style.display = "none";
   galleryPage.style.display = "block";
   impressumPage.style.display = "none";
+  ÜberUnsPage.style.display = "none";
 }
 
 function showHome() {
   homePage.style.display = "block";
   galleryPage.style.display = "none";
   impressumPage.style.display = "none";
+  ÜberUnsPage.style.display = "none";
 }
 
 function showImpressum() {
   homePage.style.display = "none";
   galleryPage.style.display = "none";
   impressumPage.style.display = "block";
+  ÜberUnsPage.style.display = "none";
 }
+
+function showÜberUns() {
+  homePage.style.display = "none";
+  galleryPage.style.display = "none";
+  impressumPage.style.display = "none";
+  ÜberUnsPage.style.display = "block";
+}
+
 </script>
 
 </body>
